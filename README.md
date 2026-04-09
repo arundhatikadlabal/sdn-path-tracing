@@ -26,8 +26,8 @@ This project implements an SDN-based path tracing system using POX and Mininet. 
 Linear topology:
 
 h1 — s1 — s2 — s3 — h3  
-           |  
-           h2
+                      |  
+                      h2
 
 ---
 

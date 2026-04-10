@@ -34,35 +34,47 @@ h1 --- s1 --- s2 --- s3 --- h3
 ## 4. Setup / Execution Steps
 
 ### Start Controller
-cd ~/pox  
-./pox.py path_trace  
+```bash
+cd ~/pox
+./pox.py path_trace
+```
 
 ### Start Mininet
-sudo mn --topo linear,3 --controller=remote,ip=127.0.0.1,port=6633 --mac  
+```bash
+sudo mn --topo linear,3 --controller=remote,ip=127.0.0.1,port=6633 --mac
+```
 
 ### Test Connectivity
-pingall  
-h1 ping -c 3 h2  
-h1 ping -c 3 h3  
+```bash
+pingall
+h1 ping -c 3 h2
+h1 ping -c 3 h3
+```
 
 ### Link Failure
-link s2 s3 down  
-h1 ping -c 3 h3  
+```bash
+link s2 s3 down
+h1 ping -c 3 h3
+```
 
 ### Restore Link
-link s2 s3 up  
-h1 ping -c 3 h3  
+```bash
+link s2 s3 up
+h1 ping -c 3 h3
+```
 
 ### iperf Test
-h3 iperf -s &  
-h1 iperf -c 10.0.0.3 -t 5  
+```bash
+h3 iperf -s &
+h1 iperf -c 10.0.0.3 -t 5
+```
 
 ### Flow Tables
-sudo ovs-ofctl dump-flows s1  
-sudo ovs-ofctl dump-flows s2  
-sudo ovs-ofctl dump-flows s3  
-
----
+```bash
+sudo ovs-ofctl dump-flows s1
+sudo ovs-ofctl dump-flows s2
+sudo ovs-ofctl dump-flows s3
+```
 
 ## 5. Expected Output
 
